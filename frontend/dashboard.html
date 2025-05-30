@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard - ShopNow</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .dashboard-container {
+      margin-top: 2rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .user-info {
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+    }
+
+    .user-info h2 {
+      margin-bottom: 1rem;
+    }
+
+    .btn-logout {
+      display: inline-block;
+      background-color: #e0bb2c;
+      color: #000;
+      padding: 0.75rem 1.5rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn-logout:hover {
+      background-color: #cfa91b;
+    }
+  </style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container">
+    <h1 class="logo">Shop<span>Now</span></h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="cart.html">Cart</a>
+      <a href="dashboard.html">Account</a>
+    </nav>
+  </div>
+</header>
+
+<section class="dashboard">
+  <div class="container dashboard-container">
+    <div class="user-info" id="user-info">
+      <h2>Welcome, <span id="user-name">Loading...</span>!</h2>
+      <p>Email: <span id="user-email"></span></p>
+      <a href="#" class="btn-logout" onclick="logout()">Logout</a>
+    </div>
+
+    <!-- Cart Summary -->
+    <h3>Your Cart</h3>
+    <table id="cart-table" style="width:100%; border-collapse: collapse;">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+        </tr>
+      </thead>

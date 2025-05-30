@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login - ShopNow</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .auth-container {
+      width: 100%;
+      max-width: 400px;
+      margin: 4rem auto;
+      padding: 2rem;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+
+    .auth-container h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    input[type="text"], input[type="email"], input[type="password"] {
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 1rem;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      background-color: #e0bb2c;
+      color: #000;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #cfa91b;
+    }
+  </style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container">
+    <h1 class="logo">Shop<span>Now</span></h1>
+  </div>
+</header>
+
+<section>
+  <div class="auth-container">
+    <h2>Login</h2>
+    <form id="login-form">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="email" required />
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="password" required />
+      </div>
+      <button type="submit" class="btn">Login</button>
+      <p style="margin-top: 1rem; text-align: center;">
+        Don't have an account? <a href="register.html">Register</a>
+      </p>
+    </form>
+  </div>
+</section>
+
+<script>
+document.getElementById("login-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  fetch("http://localhost:5000/api/auth/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ email, password })
+  })
+    .then(res => res.json())
+    .then(data => {
+      alert("Login successful!");
+      window.location.href = "index.html";
+    })
+    .catch(err => {
+      alert("Login failed.");
+      console.error(err);
+    });
+});
+</script>
+
+</body>
+</html>
