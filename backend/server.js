@@ -5,7 +5,7 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const productRoutes = require('./routes/productRoutes');
 const cartRoutes = require('./routes/cartRoutes');
-const authRoutes = require('./routes/authRoutes'); // We'll create this next
+const authRoutes = require('./routes/authRoutes'); 
 
 const app = express();
 const PORT = process.env.PORT || 5000;
